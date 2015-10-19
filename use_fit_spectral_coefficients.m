@@ -1,12 +1,12 @@
-function [coeff_img, residual] = use_fit_spectral_coefficients %Gör detta till en funktion.
+function [coeff_img, residual] = use_fit_spectral_coefficients %GÃ¶r detta till en funktion.
 
-spect_img = Image_gen2(3); %Använd funktionen spect_img för att generera en bild för testningssyften. Måste anpassas för verklig testdata i ett senare skede.
+spect_img = Image_gen(3); %AnvÃ¤nd funktionen spect_img fÃ¶r att generera en bild av grad 3 fÃ¶r testningssyften. MÃ¥ste anpassas fÃ¶r verklig testdata i ett senare skede.
 
-pars = struct('use_affine', false, 'enforce_positive', false); %Jag är inte helt hundra på vilka värden som är att föredra, har valt att inte använda något av dem. Vidare forskning krävs.
+pars = struct('use_affine', false, 'enforce_positive', false); %Jag Ã¤r inte helt hundra pÃ¥ vilka vÃ¤rden som Ã¤r att fÃ¶redra, har valt att inte anvÃ¤nda nÃ¥got av dem. Vidare forskning krÃ¤vs.
 
-refspectra = load_reference_spectra('C:\Users\Oscar\Desktop\tools-dist\reference_spectra', {'adipose', 'hFTAA'}); %Ladda referensspektra. Bör kunna effektivisseras så att detta inte görs separat i flera funktioner.
-%Notera att sökvägen är hårdkodad. Ändras vid senare tillfälle.
+refspectra = load_reference_spectra('C:\Users\Oscar\Desktop\tools-dist\reference_spectra', {'adipose', 'hFTAA'}); %Ladda referensspektra. BÃ¶r kunna effektivisseras sÃ¥ att detta inte gÃ¶rs separat i flera funktioner.
+%Notera att sÃ¶kvÃ¤gen Ã¤r hÃ¥rdkodad. Ã„ndras vid senare tillfÃ¤lle.
 
-[mask, ~, ~] = Use_threshold_signal_image2; %Använd funktionen Use_threshold_signal_images(2) utvärde 'mask' för att maska spect_img. 
+[mask, ~, ~] = Use_threshold_signal_image; %AnvÃ¤nd funktionen Use_threshold_signal_images utvÃ¤rde 'mask' fÃ¶r att maska spect_img. 
 
-[coeff_img, residual] = fit_spectral_coefficients(spect_img, refspectra, mask, pars); %Funktionen fit_spectral_coefficients gör sin magi.
+[coeff_img, residual] = fit_spectral_coefficients(spect_img, refspectra, mask, pars); %Funktionen fit_spectral_coefficients gÃ¶r sin magi.
