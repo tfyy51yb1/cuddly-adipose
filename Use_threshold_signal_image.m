@@ -4,6 +4,8 @@
     %%test function
     %%however, Threshold_signal_image does not accept threshold values representet with more than one character. eg, 10 or 0,1
 
+function [mask, threshold_value, ReturnImage] = Use_threshold_signal_image
+
 %%set up parmameter struct
 pars = struct;
 pars.flatten_mode = 'sum'; %% 'sum' or 'max'
@@ -23,11 +25,11 @@ Image = Image_gen(grade);
 
 
 
-[~, ~, ReturnImage] = threshold_signal_image(Image, pars); %% Kör threshold-funktionen och spara bara flattended_image
-%%för att spara mask, eller annat, byt ut tilde mot en variabel.
+[mask, threshold_value, ReturnImage] = threshold_signal_image(Image, pars); %% KÃ¶r threshold-funktionen och spara bara flattended_image
+%%fÃ¶r att spara mask, eller annat, byt ut tilde mot en variabel.
  
 
-%%Visa bilden före och efter att den processats
+%%Visa bilden fÃ¶re och efter att den processats
 subplot(1,2,1);
     imshow(Image, 'InitialMag',100, 'Border','tight');
     
