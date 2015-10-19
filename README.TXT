@@ -48,4 +48,4 @@ refspectrum.mat
 ./reference_spectra/qFTAA:
 refspectrum.mat
 
-Hej, vad händer?
+Hej, vad händer??
