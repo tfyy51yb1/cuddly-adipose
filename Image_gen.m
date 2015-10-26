@@ -12,7 +12,7 @@ function [rgbimg] = Image_gen(grade)
 
     
 
-    datapath = 'C:\Users\Jens\OneDrive\Dokument\tools-dist v2\tools-dist v2\reference_spectra'; %%hard coded path. should be changed
+    datapath = 'C:\Users\Jens\Documents\GitHub\cuddly-adipose\reference_spectra\'; %%hard coded path. should be changed
 
     reference_spectra = load_reference_spectra(datapath, types);
 

@@ -1,3 +1,4 @@
+function [filename, path] = path_filename
 %Let's the user choose a specific file. If the file doesn't exist
 %or the user closes the window;both path and filename will return the value 0.
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -4,7 +4,7 @@
 pausefl = false;
 
 % path to all the raw files
-datapath = '/home/wallenberg/Data/Amyloids/adipose_biopsy';
+datapath = 'C:\Users\Jens\Desktop\adipose_biopsy';
 
 % make a list of the files
 files = make_file_list(datapath, '*.raw');
