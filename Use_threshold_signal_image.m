@@ -18,23 +18,4 @@ pars.n_dilation_steps = 10%% number of steps to dialate
 pars.min_region_size = 1
 
 
-%%Image = normalise_image(Image)%% Konvertera bilddata till intervallet 0,1
-
-
-
-
 [mask, threshold_value, ReturnImage] = threshold_signal_image(Image, pars); %% Kör threshold-funktionen och spara bara flattended_image
-%%för att spara mask, eller annat, byt ut tilde mot en variabel.
- 
-
-%%Visa bilden före och efter att den processats
-%subplot(1,2,1);
-    %imshow(Image, 'InitialMag',100, 'Border','tight');
-    
-
-
-%subplot(1,2,2);
-    %imshow(ReturnImage, 'InitialMag',100, 'Border','tight');
-%%spara bilderna
-% imwrite(sumimg, 'image.jpg');   
-% imwrite(ReturnImage, 'processedimage.jpg');

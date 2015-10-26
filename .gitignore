@@ -44,3 +44,4 @@ Temporary Items
 main.m
 examples/test.m
 examples/test_read_adipose_db.m
+*.jpg
