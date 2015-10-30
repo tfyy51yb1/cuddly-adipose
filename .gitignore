@@ -45,3 +45,6 @@ main.m
 examples/test.m
 examples/test_read_adipose_db.m
 *.jpg
+Excel_export.asv
+Result.xlsx
+Test_Excel.asv
