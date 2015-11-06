@@ -1,7 +1,7 @@
 %%test function for evaluation of other functions, such as threshold_signal_image
 %%generate a single image of a certain grade to test
 
-function [rgbimg] = Image_gen(grade)
+function [imgdata] = Image_gen(grade)
 
     nrows = 300; %make images have 300 rows (Y)
     ncols = 400; %make images have 400 columns (X)
@@ -31,6 +31,6 @@ function [rgbimg] = Image_gen(grade)
     % dividing by exposure (metadata.exp) time should normalise correctly, but it doesn't
     % normalise so that energy is 1
     avg_spectrum = avg_spectrum/sqrt(sum(avg_spectrum.^2));
-    imshow(sumimg)
+    imshow(rgbimg)
     
 end

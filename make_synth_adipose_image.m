@@ -42,7 +42,7 @@ if isempty(coefficient_img)
     for k=1:ncomponents
         ch = zeros(imsize);
         
-        m = [rand(2,nclusters)];
+        m = [2, 1];
         m(1, :) = max(1, min(imsize(1), round(m(1, :)*imsize(1))));
         m(2, :) = max(1, min(imsize(2), round(m(2, :)*imsize(2))));
         
