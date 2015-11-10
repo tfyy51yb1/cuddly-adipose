@@ -11,7 +11,7 @@
 %images = get_Images(); 
 
 %use synthetic dataset
-%images = get_Dataset
+images = get_Dataset
 %%get reference spectra
 refspectra = get_refspectra();
 %%---------------------------------------
