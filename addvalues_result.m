@@ -7,9 +7,9 @@ A{1} = current_image
 A{2} = getfield(result, 'value')
 A{3} = getfield(result, 'votes')
 A{4} = getfield(result, 'matchidx')
-A{6} = getfield(result, 'distances')
-A{7} = getfield(result, 'descriptor')
-A{5} = grade
+A{5} = getfield(result, 'distances')
+A{6} = getfield(result, 'descriptor')
+A{7} = grade
 
 
 global result_data
