@@ -9,26 +9,26 @@ function [idx, d] = match_descriptor_knn(new_descriptor, ...
 switch disttype
     case 'SAD'
         D = zeros(size(descriptors));
-        for k = 1:numel(D)
-            D(k) = sum(abs(descriptors{k}(:) - new_descriptor(:)));
+        for j = 1:numel(D)
+            D(j) = sum(abs(descriptors{j}(:) - new_descriptor(:)));
         end
         minfl = true;
     case 'SSE'
         D = zeros(size(descriptors));
-        for k = 1:numel(D)
-            D(k) = sum((descriptors{k}(:) - new_descriptor(:)).^2);
+        for j = 1:numel(D)
+            D(j) = sum((descriptors{j}(:) - new_descriptor(:)).^2);
         end
         minfl = true;
     case 'Euclidean'
         D = zeros(size(descriptors));
-        for k = 1:numel(D)
-            D(k) = sqrt(sum((descriptors{k}(:) - new_descriptor(:)).^2));
+        for j = 1:numel(D)
+            D(j) = sqrt(sum((descriptors{j}(:) - new_descriptor(:)).^2));
         end
         minfl = true;
     case 'correlation'
         D = zeros(size(descriptors));
-        for k = 1:numel(D)
-            D(k) = sum(descriptors{k}(:).*new_descriptor(:));
+        for j = 1:numel(D)
+            D(j) = sum(descriptors{j}(:).*new_descriptor(:));
         end
         minfl = false;
     otherwise

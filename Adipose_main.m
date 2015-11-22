@@ -19,12 +19,12 @@ refspectra = get_refspectra();
 %%---------------------------------------
 
 %setup parameters for database generation
-% 'k' does nothing in our configuration. All disttypes except SAD are
+% 'k' is the number of neigbours to sample. All disttypes except SAD are
 % untested
-s = struct('matching_pars', struct('k', 10, 'disttype', 'SAD'));
+s = struct('matching_pars', struct('k', 3, 'disttype', 'SAD'));
 
 %initialize database
-training_data = init_database(refspectra, s, 'rough');
+training_data = init_database(refspectra, s, 'classify');
 
 
 %%function build_database calculates reference histograms and returns updated database structure.
