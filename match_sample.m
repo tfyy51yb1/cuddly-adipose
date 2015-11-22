@@ -27,7 +27,7 @@ function result = match_sample(descriptor, training_data)
 
 result = struct;                            
                             
-switch(training_pars.mode)
+switch(training_data.mode)
     case 'classify'
         grades = unique(training_data.vals);
         votes = hist(training_data.vals(idx), grades);
@@ -36,7 +36,7 @@ switch(training_pars.mode)
         result.value = estgrade;
         result.votes = votes;
     case 'estimate'
-        vals = training_data.agevals(idx);
+        vals = training_data.vals(idx);
         result.value = mean(vals);        
 end
      

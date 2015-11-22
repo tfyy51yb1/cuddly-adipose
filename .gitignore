@@ -48,3 +48,4 @@ examples/test_read_adipose_db.m
 Excel_export.asv
 Result.xlsx
 Test_Excel.asv
+*.mat
