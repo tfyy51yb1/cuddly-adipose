@@ -3,7 +3,7 @@
 %%
 %settings
 Grade = 0; % image grade, use interval 0-4
-num_of_images = 10; % number of images
+num_of_images = 1; % number of images
 mkdir('Dataset');
 
 for k=1:num_of_images

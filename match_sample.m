@@ -37,7 +37,12 @@ switch(training_data.mode)
         result.votes = votes;
     case 'estimate'
         vals = training_data.vals(idx);
-        result.value = mean(vals);        
+        result.value = mean(vals);
+    case 'rough'
+        most_similar = idx(1)
+        result.value = training_data.vals(most_similar)
+        result.votes = 'not used'
+
 end
      
 result.matchidx = idx;
