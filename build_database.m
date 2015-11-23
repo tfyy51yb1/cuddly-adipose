@@ -12,4 +12,5 @@ for k=1:numel(images)
     [~, grade, ~] = fileparts(images{k});
     grade = str2num(grade(6:6));
     training_data = insert_sample(training_data, histogram, grade);
+disp('Database built!');
 end
