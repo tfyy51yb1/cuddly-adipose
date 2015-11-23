@@ -2,13 +2,12 @@
 
 %%
 %settings
-Grade = 3; % image grade, use interval 0-4
-num_of_images = 3; % number of images
+Grade = 0; % image grade, use interval 0-4
+num_of_images = 1; % number of images
 mkdir('Dataset');
 
 for k=1:num_of_images
     imgdata = Image_gen(Grade);
-    name = ['Dataset/Grade' num2str(Grade) '_image_' num2str(k) '.mat'];
+    name = ['Dataset/igrade_' num2str(Grade) num2str(k) '.mat'];
     save(name, 'imgdata');
 end
-disp('Done!')
