@@ -2,11 +2,16 @@
 function descriptor = descriptor_calc(filename, refspectra)
 
 %Omvandla filename, en fil av typen .raw, till en bildmatris, imgdata.
-[imgdata, ~] = readASIraw(filename);
+global image_type
 
-%Kod för att funktionen ska kunna använda syntetiska bilder?
-%imgdata = load(filename);
-%imgdata = imgdata.imgdata;
+switch(image_type)
+    case 'real'
+        [imgdata, ~] = readASIraw(filename);
+    case 'synthetic'
+        %Kod för att funktionen ska kunna använda syntetiska bilder?
+        imgdata = load(filename);
+        imgdata = imgdata.imgdata;
+end
 
 %Konvertera imgdata från uint16 till double och spara det i imgdata_double
 imgdata_double = double(imgdata);

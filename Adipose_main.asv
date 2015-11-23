@@ -7,8 +7,7 @@ global result_data;
 
 
 % use synthetic or real images?
-global image_type
-image_type = 'synthetic' %'real' or 'synthetic'
+global image_type = 'real' %'real' or 'synthetic'
 
 
 switch(image_type)
@@ -24,7 +23,7 @@ switch(image_type)
         
         %%select images to match with database
         images2 = get_Dataset;
-end
+
 %%get reference spectra
 refspectra = get_refspectra();
 
