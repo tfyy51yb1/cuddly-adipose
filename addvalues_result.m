@@ -1,7 +1,7 @@
 function result_array = addvalues_result(current_image, result)
 
 [~, grade, ~] = fileparts(current_image);
-grade = str2num(grade(end:end));
+grade = str2num(grade(6));
 
 A{1} = current_image
 A{2} = getfield(result, 'value')

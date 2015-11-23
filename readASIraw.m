@@ -1,7 +1,9 @@
-% function [imgdata, metadata] = readASIraw(filename)
+% function [imgdata, metadata] = readASIraw(filename, resample_size)
 % This function reads an ASI RAW image file
 % INPUT: 
 % filename - string containing file name and path (eg '/home/myuser/myfile.raw')
+% resample_size - 1x3 vector of desired output size ([rows, cols, channels])
+%                 if an element is NaN, original size will be kept
 % 
 % OUTPUT:
 % imgdata - MxNxD uint8 image data (M rows, N columns, D spectral bands)

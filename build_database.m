@@ -10,6 +10,6 @@ global training_data;
 for k=1:numel(images)
     histogram = descriptor_calc(images{k}, refspectra);
     [~, grade, ~] = fileparts(images{k});
-    grade = str2num(grade(end:end));
+    grade = str2num(grade(6:6));
     training_data = insert_sample(training_data, histogram, grade);
 end
