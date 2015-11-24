@@ -8,7 +8,7 @@ global result_data;
 
 % use synthetic or real images?
 global image_type
-image_type = 'synthetic' %'real' or 'synthetic'
+image_type = 'real' %'real' or 'synthetic'
 
 
 switch(image_type)
@@ -42,7 +42,7 @@ training_data = init_database(refspectra, s, 'classify');
 
 
 %%function build_database calculates reference histograms and returns updated database structure.
-training_data = build_database(images, refspectra)
+training_data = build_database(images, refspectra);
 
 %%function match_db matches samples with database. results can be seen in
 %%global variable result_data

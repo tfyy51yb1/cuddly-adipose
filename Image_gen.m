@@ -12,7 +12,7 @@ function [imgdata] = Image_gen(grade)
 
     
 
-    datapath = 'Z:\My Documents\cuddly-adipose\reference_spectra'; %%hard coded path. should be changed
+    datapath = 'C:\Users\Jens\Documents\GitHub\cuddly-adipose\reference_spectra'; %%hard coded path. should be changed
 
     reference_spectra = load_reference_spectra(datapath, types);
 
