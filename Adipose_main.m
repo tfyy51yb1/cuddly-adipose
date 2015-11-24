@@ -1,6 +1,7 @@
 
 %%Adipose Main
-
+clear;
+clc;
 %initilaize global variables
 global training_data;
 global result_data;

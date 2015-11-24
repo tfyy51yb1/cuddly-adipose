@@ -1,6 +1,7 @@
 % used to create 
 % y = [G0; G1; G2; G3; G4];
 % bar(y)
+function I = stack()
 global result_data
 global images2
 G0 = [];
@@ -24,7 +25,8 @@ for k=1:numel(images2)
             G4 = [G4, a];
         otherwise
              disp('ERROR!')
-       end
- 
+        end
            
     end
+I = [G0; G1; G2; G3; G4];
+end
