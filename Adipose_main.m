@@ -5,11 +5,12 @@ clc;
 %initilaize global variables
 global training_data;
 global result_data;
+global images2
 
 
 % use synthetic or real images?
 global image_type
-image_type = 'real' %'real' or 'synthetic'
+image_type = 'synthetic' %'real' or 'synthetic'
 
 
 switch(image_type)

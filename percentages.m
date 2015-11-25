@@ -4,6 +4,7 @@ global images2
 correct = 0;
 smaller = 0;
 higher = 0;
+
 for k=1:numel(images2)
     a = result_data{k, 2};
     b = result_data{k, 7};

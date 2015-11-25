@@ -25,7 +25,7 @@ set(gca,'Xticklabel',{'G0', 'G1', 'G2', 'G3', 'G4'});
 
 
 subplot(5,5,[16 17 18 19 20 21 22 23 24 25]) 
-plot(B, 'color', 'r'); hold on;
-bar(A, 'grouped')
+plot(A, 'color', 'r'); hold on;
+bar(B, 'grouped')
 xlabel('Image')
 ylabel('Voted grades')
