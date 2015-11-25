@@ -7,15 +7,15 @@
 function [mask, threshold_value, ReturnImage] = Use_threshold_signal_image(Image)
 
 %%set up parmameter struct
-pars = struct;
-pars.flatten_mode = 'max'; %% 'sum' or 'max'
-pars.normalisefl = false; %%true/false
-pars.method = 'manual'; %% manual/automatic
-pars.gammaval = 1; %%gamma value to apply
-pars.threshold_value = 0.011; %% threshold value
-pars.n_erosion_steps = 0;%% number of steps to erode
-pars.n_dilation_steps = 0;%% number of steps to dialate
-pars.min_region_size = ceil(size(Image, 1)*size(Image, 2)*0.001);
+global threshold_pars
+threshold_pars.flatten_mode = 'max'; %% 'sum' or 'max'
+threshold_pars.normalisefl = false; %%true/false
+threshold_pars.method = 'manual' %% manual/automatic
+threshold_pars.gammaval = 1; %%gamma value to apply
+threshold_pars.threshold_value = 0.011; %% threshold value
+threshold_pars.n_erosion_steps = 0;%% number of steps to erode
+threshold_pars.n_dilation_steps = 0;%% number of steps to dialate
+threshold_pars.min_region_size = ceil(size(Image, 1)*size(Image, 2)*0.001);
 
 
-[mask, threshold_value, ReturnImage] = threshold_signal_image(Image, pars); %% Kör threshold-funktionen och spara bara flattended_image
+[mask, threshold_value, ReturnImage] = threshold_signal_image(Image, threshold_pars); %% Kör threshold-funktionen och spara bara flattended_image
