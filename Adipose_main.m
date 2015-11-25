@@ -6,10 +6,10 @@ global training_data;
 global result_data;
 
 %%select images used to generate database
-images = get_Dataset;
+images = get_Images;
 
 %%select images to match with databse
-images2 = get_Dataset;
+images2 = get_Images;
 
 %%get reference spectra
 refspectra = get_refspectra();
