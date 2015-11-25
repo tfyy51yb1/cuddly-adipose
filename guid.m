@@ -503,7 +503,7 @@ function dbimagefiles_Callback(hObject, eventdata, handles)
 % Hints: contents = cellstr(get(hObject,'String')) returns dbimagefiles contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from dbimagefiles
 
-
+set(handles.dbimagefiles, 'String', '');
 handles.images = get_Images;
 assignin ('base','images', handles.images);
 for k = 1 : length(handles.images)
