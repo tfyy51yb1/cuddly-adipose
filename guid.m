@@ -22,7 +22,7 @@ function varargout = guid(varargin)
 
 % Edit the above text to modify the response to help guid
 
-% Last Modified by GUIDE v2.5 25-Nov-2015 20:25:17
+% Last Modified by GUIDE v2.5 25-Nov-2015 22:19:46
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -55,16 +55,16 @@ function guid_OpeningFcn(hObject, eventdata, handles, varargin)
 % Initialization variables
 global threshold_pars
 threshold_pars = struct;
-threshold_pars.flatten_mode = 'sum'; 
+threshold_pars.flatten_mode = 'max'; 
 threshold_pars.normalisefl = false; 
 threshold_pars.method = 'manual'; 
-threshold_pars.gammaval = 1; 
-threshold_pars.threshold_value = 0.011; 
+threshold_pars.gammaval = 0.7; 
+threshold_pars.threshold_value = 130; 
 threshold_pars.n_erosion_steps = 0;
 threshold_pars.n_dilation_steps = 0;
-threshold_pars.min_region_size = 500;
+threshold_pars.min_region_size = 788;
 
-handles.affine_init = true;
+handles.affine_init = false;
 handles.enforcepositive_init = false;
 
 handles.descriptor_pars = struct('use_affine', handles.affine_init, 'enforce_positive', handles.enforcepositive_init);
@@ -109,13 +109,12 @@ function db_Callback(hObject, eventdata, handles)
 % hObject    handle to db (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+set(handles.progress, 'String', ' ');
+guidata(hObject,handles);
 clearvars -global training_data;
-set(handles.progress, 'String', '');
 global training_data
 training_data = init_database(handles.refspectra, handles.s, handles.mode_init);
-set(handles.progress, 'String', 'In progress...')
 training_data = build_database(handles.images, handles.refspectra, handles.descriptor_pars);
-guidata(hObject,handles);
 set(handles.progress, 'String', 'Done!');
 assignin ('base','td',training_data);
 
@@ -124,10 +123,12 @@ function match_Callback(hObject, eventdata, handles)
 % hObject    handle to match (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+set(handles.match_progress, 'String', ' ');
 clearvars -global result_array;
 global training_data
 result_struct = match_db(handles.images2, handles.refspectra, training_data, handles.descriptor_pars);
 result_cell = struct2cell(result_struct);
+set(handles.match_progress, 'String', 'Done!');
 assignin ('base','result', result_cell);
 
 global result_array
@@ -232,15 +233,6 @@ else
 	handles.descriptor_calc.enforce_positive = false;
     guidata(hObject,handles);
 end
-
-% --- Executes on button press in checkbox6.
-function checkbox6_Callback(hObject, eventdata, handles)
-% hObject    handle to checkbox6 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of checkbox6
-
 
 
 function mode_Callback(hObject, eventdata, handles)
@@ -554,3 +546,18 @@ function sampleimagefiles_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes during object creation, after setting all properties.
+function progress_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to progress (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+
+% --- If Enable == 'on', executes on mouse press in 5 pixel border.
+% --- Otherwise, executes on mouse press in 5 pixel border or over progress.
+function progress_ButtonDownFcn(hObject, eventdata, handles)
+% hObject    handle to progress (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

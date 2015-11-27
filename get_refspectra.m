@@ -1,7 +1,7 @@
 function reference_spectra = get_refspectra();
 
 %%Type of spectra to load
-types = {'adipose', 'hFTAA'};
+types = {'adipose'};
 
 
 %%generate path to folder containing spectra
