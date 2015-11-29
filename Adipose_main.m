@@ -39,13 +39,16 @@ refspectra = get_refspectra();
 % untested
 s = struct('matching_pars', struct('k', 3, 'disttype', 'SAD'));
 
+%Create parameter struct to be utilized in fit_spectral_coefficients.
+fit_spectral_pars = struct('use_affine', false, 'enforce_positive', false);
+
 %initialize database
 training_data = init_database(refspectra, s, 'classify');
 
 
 %%function build_database calculates reference histograms and returns updated database structure.
-training_data = build_database(images, refspectra);
+training_data = build_database(images, refspectra, fit_spectral_pars);
 
 %%function match_db matches samples with database. results can be seen in
 %%global variable result_data
-match_db(images2, refspectra, training_data);
+match_db(images2, refspectra, training_data, fit_spectral_pars);
