@@ -39,8 +39,19 @@ refspectra = get_refspectra();
 % untested
 s = struct('matching_pars', struct('k', 3, 'disttype', 'SAD'));
 
-%Create parameter struct to be utilized in fit_spectral_coefficients.
+%Create parameter structs to be utilized in fit_spectral_coefficients and threshold_signal_image.
 fit_spectral_pars = struct('use_affine', false, 'enforce_positive', false);
+
+global threshold_pars
+threshold_pars = struct;
+threshold_pars.flatten_mode = 'max'; 
+threshold_pars.normalisefl = false; 
+threshold_pars.method = 'manual'; 
+threshold_pars.gammaval = 0.7; 
+threshold_pars.threshold_value = 130; 
+threshold_pars.n_erosion_steps = 0;
+threshold_pars.n_dilation_steps = 0;
+threshold_pars.min_region_size = 788;
 
 %initialize database
 training_data = init_database(refspectra, s, 'classify');

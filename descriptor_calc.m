@@ -33,7 +33,7 @@ end
 imgdata_double = double(imgdata);
 
 %Run threshold_signal_image and save the resulting logical mask in variable
-%mask.threshold_pars is a global parameter struct created by the GUI.
+%mask.threshold_pars is a global parameter struct created by the GUI or the main function.
 global threshold_pars
 [mask, ~, ~] = threshold_signal_image(imgdata, threshold_pars);
 

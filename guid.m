@@ -82,6 +82,8 @@ handles.s = struct('matching_pars', struct('k', handles.neighbours_init', 'distt
 training_data = init_database(handles.refspectra, handles.s, handles.mode_init);
 assignin ('base','td',training_data);
 
+global image_type
+image_type = 'real';
 
 % Choose default command line output for guid
 handles.output = hObject;
@@ -279,9 +281,9 @@ flattenmodeval = get(handles.flattenmode, 'Value');
 
 switch flattenmodeval
     case 1
-        threshold_pars.flatten_mode = 'sum';
-    case 2
         threshold_pars.flatten_mode = 'max';
+    case 2
+        threshold_pars.flatten_mode = 'sum';
 end
 
 assignin ('base','tp',threshold_pars)
