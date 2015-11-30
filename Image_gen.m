@@ -1,6 +1,16 @@
-%%test function for evaluation of other functions, such as threshold_signal_image
-%%generate a single image of a certain grade to test
-
+% function [imgdata] = Image_gen(grade)
+% This function generates a single image of a specified grade
+%
+% INPUT
+% Grade        Desired grade, valid numbers are 0-4 (the program will not
+% sanitize input, grades outside the spicified range might be possible to
+% generate, but this is not supported
+% 
+%                       
+% OUTPUT
+% imgdata         Hyperspectral image
+%
+% Jens Grundmark, 2015
 function [imgdata] = Image_gen(grade)
 
     nrows = 300; %make images have 300 rows (Y)
@@ -12,7 +22,7 @@ function [imgdata] = Image_gen(grade)
 
     
 
-    datapath = 'C:\Users\Jens\Documents\GitHub\cuddly-adipose\reference_spectra'; %%hard coded path. should be changed
+    datapath = 'C:\Users\jengr562\Documents\GitHub\cuddly-adipose\reference_spectra'; %%hard coded path. should be changed
 
     reference_spectra = load_reference_spectra(datapath, types);
 

@@ -1,8 +1,8 @@
 
 
 
-    %%test function
-    %%however, Threshold_signal_image does not accept threshold values representet with more than one character. eg, 10 or 0,1
+    %%test function, not actually used.
+    
 
 function [mask, threshold_value, ReturnImage] = Use_threshold_signal_image(Image)
 
