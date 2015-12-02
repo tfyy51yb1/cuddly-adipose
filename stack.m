@@ -1,6 +1,10 @@
-% used to create 
-% y = [G0; G1; G2; G3; G4];
-% bar(y)
+% function I = stack() 
+% This function collects data from the result_data, and loops through two
+% columns to check what the grades that were classified as for example
+% zeroes, actually were. Note that this function only works if the amount
+% of pictures are equal.
+%The result of this function is used in the SUBPLOT module.
+%Josef Hammar, Marcus Grip 2015
 function I = stack()
 global result_data
 global images2
@@ -9,7 +13,9 @@ G1 = [];
 G2 = [];
 G3 = [];
 G4 = [];
-for k=1:numel(images2)
+n = numel(result_data);
+n = n/7;
+for k=1:n
      a = result_data{k, 2};
      b = result_data{k, 7};
      switch b
